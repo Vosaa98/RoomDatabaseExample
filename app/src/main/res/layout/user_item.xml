@@ -24,18 +24,27 @@
             android:layout_weight="1"
             android:paddingHorizontal="16dp"
             android:textColor="@color/black"
-            android:text="@{user.firstName}"
+            android:text="@{Long.toString(user.userId)}"
             tools:text="1" />
 
         <TextView
-            android:id="@+id/user_name"
+            android:id="@+id/user_firstname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="4"
+            android:layout_weight="2"
+            android:text="@{user.firstName}"
+            android:textColor="@color/black"
+            tools:text="Savo" />
+        <TextView
+            android:id="@+id/user_lastname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
             android:text="@{user.lastName}"
             android:textColor="@color/black"
-            tools:text="Savo Lekovic" />
+            tools:text="Lekovic" />
 
     </LinearLayout>
 </layout>

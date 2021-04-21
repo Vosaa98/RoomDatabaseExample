@@ -10,6 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         tools:context=".MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -17,10 +18,30 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="16dp"
+            app:layout_constraintBottom_toTopOf="@id/edit_firstname"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/save_button"
             tools:itemCount="5"
             tools:listitem="@layout/user_item" />
+
+        <EditText
+            android:id="@+id/edit_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="last name"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            app:layout_constraintBottom_toTopOf="@id/add_button" />
+
+        <EditText
+            android:id="@+id/edit_firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="first name"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray"
+            app:layout_constraintBottom_toTopOf="@id/edit_lastname" />
 
         <Button
             android:id="@+id/add_button"
@@ -29,18 +50,8 @@
             android:layout_marginBottom="16dp"
             android:text="add"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/save_button"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="save"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/clear_button"
-            app:layout_constraintStart_toEndOf="@id/add_button" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/clear_button"
@@ -50,8 +61,7 @@
             android:text="clear"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/save_button" />
-
+            app:layout_constraintStart_toEndOf="@id/add_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

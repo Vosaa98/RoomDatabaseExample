@@ -8,11 +8,15 @@ import com.example.roomdatabaseapp.User
 @Dao
 interface UserDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(user: User)
 
-    @Query("SELECT * FROM User ORDER BY userId DESC")
+    @Query("SELECT * FROM User ORDER BY userId ASC")
     fun getUsers(): LiveData<List<User>>
+
+    @Query("DELETE FROM User")
+    fun deleteAll()
+
 }
 
 @Database(entities = [User::class], version = 1)

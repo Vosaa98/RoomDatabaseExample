@@ -9,8 +9,8 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     var list = ArrayList<User>()
 
-    fun submitList(list: ArrayList<User>){
-        this.list = list
+    fun submitList(list: List<User>){
+        this.list = list as ArrayList<User>
         notifyDataSetChanged()
     }
 
