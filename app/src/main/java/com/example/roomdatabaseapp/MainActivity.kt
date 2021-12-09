@@ -1,8 +1,8 @@
 package com.example.roomdatabaseapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomdatabaseapp.database.UserDatabase
@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var dataSource: UserDatabase
 
-    private var number = 1L
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -36,11 +34,11 @@ class MainActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener {
             val firstName = binding.editFirstname.text.toString().trim()
             val lastName = binding.editLastname.text.toString().trim()
-            if(firstName.isNotEmpty() && lastName.isNotEmpty()){
+            if (firstName.isNotEmpty() && lastName.isNotEmpty()) {
                 CoroutineScope(Dispatchers.Main).launch {
                     insertUser(User(firstName, lastName))
                 }
-            }else{
+            } else {
                 Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
             }
 
@@ -52,13 +50,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        dataSource.userDao.getUsers().observe(this,{
+        dataSource.userDao.getUsers().observe(this, {
             adapter.submitList(it)
         })
     }
 
     private suspend fun insertUser(user: User) {
-        withContext(Dispatchers.IO){
+        withContext(Dispatchers.IO) {
             dataSource.userDao.insert(user)
         }
     }

@@ -1,7 +1,6 @@
 package com.example.roomdatabaseapp
 
 import androidx.room.*
-import java.lang.reflect.Constructor
 
 @Entity
 data class User(
@@ -16,6 +15,7 @@ data class User(
     val lastName: String
 
 ){
+    @Ignore
     constructor(firstName: String, lastName: String) : this(0, firstName, lastName)
 }
 

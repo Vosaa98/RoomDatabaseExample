@@ -7,7 +7,7 @@ import com.example.roomdatabaseapp.databinding.UserItemBinding
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    var list = ArrayList<User>()
+    private var list = ArrayList<User>()
 
     fun submitList(list: List<User>){
         this.list = list as ArrayList<User>
@@ -24,7 +24,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun getItemCount(): Int = list.size
 
-    class UserViewHolder private constructor(val binding: UserItemBinding): RecyclerView.ViewHolder(binding.root) {
+    class UserViewHolder private constructor(private val binding: UserItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: User){
             binding.user = item
             binding.executePendingBindings()
